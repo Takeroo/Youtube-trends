@@ -1,0 +1,13 @@
+div(id='page-header')
+  nav(class='navbar navbar-default navbar-fixed-top')
+    div(class='col-md-3 hidden-md-down')
+      img(class='logo', src='/images/logo.svg')
+
+    div(class='col-md-6 hidden-md-down note')
+      div(class='form-group')
+        select(class="selectpicker", data-live-search="true", onchange="this.options[this.selectedIndex].value && (window.location = window.location.href.split('?')[0] +'?code=' + this.options[this.selectedIndex].value);")
+          each country in countries
+            if country.code == selectedCountryCode
+              option(value=country.code, selected="selected")=country.name
+            else
+              option(value=country.code)=country.name
